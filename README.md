@@ -6,7 +6,7 @@ In repository we provide our approach to the end-to-end bilingual handwriting te
 ## OCR part
 
 ### Validation strategy
-Our validation strategy is a Stratified K-fold split based on the both `text lengths` and `characters occurance`.
+Our validation strategy for OCR part is a Stratified K-fold split based on the both `text lengths` and `characters occurance`. We were forced to use only a single fold on inference due to the time limits.
 
 ### Modeling and losses
 
@@ -46,6 +46,7 @@ Our validation strategy is a Stratified K-fold split based on the both `text len
 ## Detection part
 
 ### Validation strategy
+Our validation strategy for detection part is a Stratified K-fold split based on the both sheet orientation and language on a sheet. We were forced to use only a single fold on inference due to the time limits.
 
 ### YOLOV5
 
@@ -56,3 +57,5 @@ Our validation strategy is a Stratified K-fold split based on the both `text len
 ## Overall results
 
 ## Team
+- Vadim Timakin [GitHub](https://github.com/t0efL) | vad.timakin@yandex.ru | [Telegram](https://t.me/mrapplexz)
+- Maxim Afanasyev [GitHub](https://github.com/mrapplexz) | mr.applexz@gmail.com | [Telegram](https://t.me/t0efL)
