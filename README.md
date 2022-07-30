@@ -6,14 +6,38 @@ In repository we provide our approach to the end-to-end bilingual handwriting te
 ## OCR part
 
 ### Validation strategy
+Our validation strategy is a Stratified K-fold split based on the both `text lengths` and `characters occurance`.
 
-### Modeling
+### Modeling and losses
 
 ### Training setup
+- Epochs: 55 (50 + 5 warm-up)
+- Optimizer: MADGRAD
+- Learning rate: 1e-4
+- Scheduler: Cosine (T_max=50)
+- Mixed Precision: OFF (doesn't work with CTC Loss)
+- Gradient accumulation: OFF 
+- Batchnorms freeze: OFF
+- Gradient Clipping: ON (2)
+- Batch size: 32
 
 ### Pre-processing
+- Custom resize function with saving text aspect ratio using padding (384 x 96)
+- Normalization (imagenet)
+- Swap black background to white one
+- Convert image to grayscale
 
 ### Augmentations
+- Custom augmentation for artificial crossing out of letters
+- Blur
+- CLAHE 
+- Rotate 
+- Cutout 
+- GridDistortion 
+- RandomShadow
+- MotionBlur
+- Optical Distortion
+- Turned off augmentations during the warmup  
 
 ### Datasets
 
