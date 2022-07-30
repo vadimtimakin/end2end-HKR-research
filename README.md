@@ -5,6 +5,8 @@ In repository we provide our approach to the end-to-end bilingual handwriting te
 
 ## OCR part
 
+### Validation strategy
+
 ### Modeling
 
 ### Training setup
@@ -19,9 +21,13 @@ In repository we provide our approach to the end-to-end bilingual handwriting te
 
 ## Detection part
 
+### Validation strategy
+
 ### YOLOV5
 
 ### Detectron
+
+### Comparing
 
 ## Overall results
 
