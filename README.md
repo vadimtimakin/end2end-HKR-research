@@ -85,7 +85,7 @@ Now let's compare these two approaches based on two different models using a lis
 
 | Criteria | YOLOV5 | Detectron | Winner (D / Y) |
 | --- | --- | --- | --- | 
-| Tuning needed  | Minor config turnning | Parameter tuning and custom backbone were required | Y | 
+| Tuning needed  | Minor config tunning | Parameter tuning and custom backbone were required | Y | 
 | Training time | Slow | Fast | D | 
 | Inference time | Lightning fast | Slow | Y | 
 | Perfomance | Good | A little worse | Y | 
