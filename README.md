@@ -53,7 +53,24 @@ Our validation strategy for detection part is a Stratified K-fold split based on
 
 ### YOLOV5
 
+The YOLOV5 model has been trained and used with the following setup:
+- Epochs: 500
+- Optimizer: AdamW
+- Tuned parameters
+- Image size: 1280
+- Model: yolov5l
+- Batchsize: 2
+- Lower threshold on inference (0.5 -> 0.45)
+
 ### Detectron
+
+The Detectron model has been trained and used with the following setup:
+- Iterations: 20k
+- Optimizer: MADGRAD
+- Tuned parameters
+- Backbone: Convnext
+- Increased number of bboxes on inference
+- Increased image size on infernce (1024 -> 2048)
 
 ### Comparing
 
