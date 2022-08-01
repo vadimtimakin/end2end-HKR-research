@@ -54,6 +54,25 @@ Our validation strategy for detection part is a Stratified K-fold split based on
 
 ### Comparing
 
+Here are the finals scores for both models.
+
+| Model | Public LB | Private LB |
+| --- | --- | --- | 
+| Detectron | 0.1303  | 0.1394 |
+| YOLOV5  | **0.1205** | **0.1387** |
+
+Now let's compare these two approaches based on two different models using a list of criteria.
+
+| Criteria | YOLOV5 | Detectron | Winner (D / Y) |
+| --- | --- | --- | --- | 
+| Tuning needed  | Minor config turnning | Parameter tuning and custom backbone were required | Y | 
+| Training time | Slow | Fast | D | 
+| Inference time | Lightning fast | Slow | Y | 
+| Perfomance | Good | A little worse | Y | 
+| The complexity of the annotantions | Only bboxes needed | Annotains for segmentation required | Y | 
+
+
+
 ## Overall results
 
 ## Team
