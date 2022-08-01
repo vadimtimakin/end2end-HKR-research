@@ -43,6 +43,12 @@ Our validation strategy for OCR part is a Stratified K-fold split based on the b
 
 ### Post-processing
 
+#### Merging CTC's and Transformers's heads predictions
+
+#### Language model
+
+#### Beam Search
+
 ## Detection (segmentation) part
 
 ## Possible approaches
@@ -71,6 +77,8 @@ The Detectron model has been trained and used with the following setup:
 - Backbone: Convnext
 - Increased number of bboxes on inference
 - Increased image size on infernce (1024 -> 2048)
+
+### Metric for evaluation
 
 ### Comparing
 
