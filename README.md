@@ -5,6 +5,8 @@ In repository we provide our approach to the end-to-end bilingual handwriting te
 
 ## OCR part
 
+### Handling bilingual texts
+
 ### Validation strategy
 Our validation strategy for OCR part is a Stratified K-fold split based on the both `text lengths` and `characters occurance`. We were forced to use only a single fold on inference due to the time limits. We split the data into 10 folds and took one of them (train 90%, validation 10%).
 
@@ -40,6 +42,10 @@ Our validation strategy for OCR part is a Stratified K-fold split based on the b
 - Turned off augmentations during the warmup  
 
 ### Datasets
+
+#### Russian
+
+#### English
 
 ### Post-processing
 
