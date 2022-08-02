@@ -120,7 +120,7 @@ Now let's compare these two approaches based on two different models using a lis
 As a result of our  work we managed to:
 1) Achieve 3.2 CER for OCR model
 2) Achive 13.87 CER overall
-3) Figured out that the detection approach based on the YOLOV5 is more efficient than the segmentation apporoach based on the Detectron.
+3) Figure out that the detection approach based on the YOLOV5 is more efficient than the segmentation apporoach based on the Detectron.
 
 ## Team
 - Vadim Timakin [GitHub](https://github.com/t0efL) | vad.timakin@yandex.ru | [Telegram](https://t.me/mrapplexz)
