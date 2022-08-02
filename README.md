@@ -69,10 +69,10 @@ Our validation strategy for OCR part is a Stratified K-fold split based on the b
 ## Detection (segmentation) part
 
 ## Possible approaches
-There are two ways to get the cropped words from the sheet: detection and segmentation. We tried them both. For each one we've chosen the current SOTA model: YOLOV5 and Detectron respectively.
+There are two ways to get the cropped words from the sheet: `detection` and `segmentation`. We tried them both. For each one we've chosen the current SOTA model: `YOLOV5` and `Detectron` respectively.
 
 ### Validation strategy
-Our validation strategy for detection part is a Stratified K-fold split based on the both sheet orientation and language on a sheet. We were forced to use only a single fold on inference due to the time limits. We split the data into 2w0 folds and took one of them (train 95%, validation 5%).
+Our validation strategy for detection part is a Stratified K-fold split based on the both `sheet orientation` and `language on a sheet`. We were forced to use only a single fold on inference due to the time limits. We split the data into 2w0 folds and took one of them (train 95%, validation 5%).
 
 ### YOLOV5
 
