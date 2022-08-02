@@ -10,7 +10,7 @@ In repository we provide our approach to the end-to-end bilingual handwriting te
 ## OCR part
 
 ### Handling bilingual texts
-There are two main approaches to the recognition of multilingual texts: with a single model and using multiple models for each of the languages and an additional classification model for determining the language. We tried them both and came to the conclusion that it's better to use a singe model in this task. Within the framework of our experiments, a single model shows a relatively good result compared to separate models. Also equally important is the fact that using a single model reduces the time and memory required for inference, which makes it more suitable for a product solution.
+There are two main approaches to the recognition of multilingual texts: with a single model and using multiple models for each of the languages and an additional classification model for determining the language. We tried them both and came to the conclusion that it's better to use a singe model in this task. Within the framework of our experiments, a `single model` shows a relatively good result compared to separate models. Also equally important is the fact that using a single model reduces the time and memory required for inference, which makes it more suitable for a product solution.
 
 ### Validation strategy
 Our validation strategy for OCR part is a Stratified K-fold split based on the both `text lengths` and `characters occurance`. We were forced to use only a single fold on inference due to the time limits. We split the data into 10 folds and took one of them (train 90%, validation 10%).
@@ -126,7 +126,7 @@ Here are the finals scores for both models.
 | Detectron | 0.1303  | 0.1394 |
 | YOLOV5  | **0.1205** | **0.1387** |
 
-Now let's compare these two approaches based on two different models using a list of criteria.
+We can also compare these two approaches based on two different models using a list of criteria.
 
 | Criteria | YOLOV5 | Detectron | Winner (D / Y) |
 | --- | --- | --- | --- | 
