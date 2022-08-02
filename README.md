@@ -60,6 +60,12 @@ After analyzing the most frequent errors of our model, we noticed that many of t
 ### Datasets
 
 #### Russian
+Positive:
+- [HKR](https://github.com/abdoelsayed2016/HKR_Dataset)
+
+Negative:
+- [KOHTD](https://github.com/abdoelsayed2016/KOHTD) (only samples with russian symbols)
+- [Cyrillic Handwriting Dataset](https://www.kaggle.com/datasets/constantinwerner/cyrillic-handwriting-dataset)
 
 #### English
 
