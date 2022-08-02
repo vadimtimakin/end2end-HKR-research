@@ -19,6 +19,8 @@ Our validation strategy for OCR part is a Stratified K-fold split based on the b
 
 <img src="https://github.com/t0efL/end2end-HKR-research/blob/main/images/model.jpg" alt="drawing" width="450"/>
 
+After testing CRNN and Transformer architectures separately we decided to create one `gybrid model` with tho heads: CTC's one and Transformer's one. This move allowed us to achieve maximum perfomance. In the first experiments, the two separate architectures mentioned above showed approximately similar results, so simply combining them into one does not guarantee an increase in accuracy. Instead, improving the quality of the combined model is a consequence of training it for two loss functions at once: `CTC Loss` and `Cross Entropy Loss`. During the experiments, we were able to choose the best weights for each of the losses: `0.25` and `0.75` accordingly.
+
 ### Training setup
 - Epochs: 55 (50 + 5 warm-up)
 - Optimizer: MADGRAD
