@@ -68,6 +68,12 @@ Negative:
 - [Cyrillic Handwriting Dataset](https://www.kaggle.com/datasets/constantinwerner/cyrillic-handwriting-dataset)
 
 #### English
+Positive:
+- [GNHK](https://www.goodnotes.com/gnhk) (isn't used in final sumbission)
+- [IAM](https://www.google.com/url?sa=t&rct=j&q=&esrc=s&source=web&cd=&ved=2ahUKEwj09pjaoan5AhVwxosKHUOKDIoQFnoECAQQAQ&url=https%3A%2F%2Ffki.tic.heia-fr.ch%2Fdatabases%2Fiam-handwriting-database&usg=AOvVaw1MIFv8_Oj8TFBQ1Nc7Nak4) (isn't used in final sumbission)
+
+Negative:
+- [English Handwritten Characters](https://www.kaggle.com/datasets/dhruvildave/english-handwritten-characters-dataset)
 
 ### Inference
 
