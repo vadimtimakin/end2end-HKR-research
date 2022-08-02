@@ -143,7 +143,7 @@ As a result of our  work we managed to:
 3) Figure out that the detection approach based on the YOLOV5 is more efficient than the segmentation apporoach based on the Detectron.
 
 ## License
-The code is Open Source under the MIT License. There is no limitation for both acadmic and commercial usage.
+The code is Open Source under the [MIT License](https://github.com/t0efL/end2end-HKR-research/blob/main/LICENSE). There is no limitation for both acadmic and commercial usage.
 
 ## Team
 - Vadim Timakin [GitHub](https://github.com/t0efL) | vad.timakin@yandex.ru | [Telegram](https://t.me/mrapplexz)
