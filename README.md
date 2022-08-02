@@ -71,11 +71,10 @@ After analyzing the most frequent errors of our model, we noticed that many of t
 The transformer's prediction are usually better than the CTC's ones, however since the transformer is the seq2seq model it might cause high CER in the case where the detector gives false positive predictions - in this case transformer head sometimes predicts long sequence where it should be empty at all. Based on this we've decided to use the following techinque: if CTC head predicts empty sequence, then take its prediction (empty sequence) as a final prediction, otherwise take transformer head's prediction.
 
 #### Speed up
-Implementing batch inference for transformer head as well as for the CTC one allowed us to speed up inference significantly.
+Implementing batch inference for transformer head as well as for the CTC one allowed us to speed up an inference significantly.
 
-#### Language model and autocorrection
-
-#### Beam Search
+#### Other things
+We've implemented Beam Search for our model, it gave us a small boost in score, but slowed down an inference significantly, so we were forced to gave it up. Language model wasn't used because of the same reason. However, abandoning these things is not a significant loss within our domain. Since we work with school notebooks, students often make mistakes in words, which decreases potential of using beam search, language models or any autocorrection utils in this task.
 
 ## Detection (segmentation) part
 
