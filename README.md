@@ -13,7 +13,7 @@ Our validation strategy for OCR part is a Stratified K-fold split based on the b
 
 ### Modeling and loss functions
 
-<img src="https://github.com/t0efL/end2end-HKR-research/blob/main/images/model.jpg" alt="drawing" width="400"/>
+<img src="https://github.com/t0efL/end2end-HKR-research/blob/main/images/model.jpg" alt="drawing" width="450"/>
 
 ### Training setup
 - Epochs: 55 (50 + 5 warm-up)
@@ -51,6 +51,8 @@ Our validation strategy for OCR part is a Stratified K-fold split based on the b
 #### English
 
 ### Inference
+
+<img src="https://github.com/t0efL/end2end-HKR-research/blob/main/images/inference.jpg" alt="drawing" width="450"/>
 
 #### Merging CTC's and Transformers's heads predictions
 
