@@ -76,7 +76,9 @@ Negative:
 - [English Handwritten Characters](https://www.kaggle.com/datasets/dhruvildave/english-handwritten-characters-dataset)
 
 #### Custom
-We also tried to generate custom datasets using [StackMix](https://github.com/ai-forever/StackMix-OCR) and [Scrabble GAN](https://github.com/amzn/convolutional-handwriting-gan), but it didn't improve our score. Some examples below.
+We also tried to generate custom datasets using [StackMix](https://github.com/ai-forever/StackMix-OCR) and [Scrabble GAN](https://github.com/amzn/convolutional-handwriting-gan), but it didn't improve our score as neither an external data nor pretrain. Some examples below.
+
+<img src="https://github.com/t0efL/end2end-HKR-research/blob/main/images/gan.jpg" alt="drawing"/>
 
 ### Inference
 
