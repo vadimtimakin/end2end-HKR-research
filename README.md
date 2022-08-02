@@ -142,6 +142,9 @@ As a result of our  work we managed to:
 2) Achive 13.87 CER overall.
 3) Figure out that the detection approach based on the YOLOV5 is more efficient than the segmentation apporoach based on the Detectron.
 
+## License
+The code is Open Source under the MIT License. There is no limitation for both acadmic and commercial usage.
+
 ## Team
 - Vadim Timakin [GitHub](https://github.com/t0efL) | vad.timakin@yandex.ru | [Telegram](https://t.me/mrapplexz)
 - Maxim Afanasyev [GitHub](https://github.com/mrapplexz) | mr.applexz@gmail.com | [Telegram](https://t.me/t0efL)
