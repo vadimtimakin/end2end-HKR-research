@@ -68,10 +68,12 @@ After analyzing the most frequent errors of our model, we noticed that many of t
 <img src="https://github.com/t0efL/end2end-HKR-research/blob/main/images/inference.jpg" alt="drawing" width="450"/>
 
 #### Merging CTC's and Transformers's heads predictions
+The transformer's prediction are usually better than the CTC's ones, however since the transformer is the seq2seq model it might cause high CER in the case where the detector gives false positive predictions - in this case transformer head sometimes predicts long sequence where it should be empty at all. Based on this we've decided to use the following techinque: if CTC head predicts empty sequence, then take its prediction (empty sequence) as a final prediction, otherwise take transformer head's prediction.
 
 #### Speed up
+Implementing batch inference for transformer head as well as for the CTC one allowed us to speed up inference significantly.
 
-#### Language model
+#### Language model and autocorrection
 
 #### Beam Search
 
