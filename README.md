@@ -74,7 +74,7 @@ There are two ways to get the cropped words from the sheet: `detection` and `seg
 ### Validation strategy
 Our validation strategy for detection part is a Stratified K-fold split based on the both `sheet orientation` and `language on a sheet`. We were forced to use only a single fold on inference due to the time limits. We split the data into 2w0 folds and took one of them (train 95%, validation 5%).
 
-### YOLOV5
+### Detection (YOLOV5)
 
 The YOLOV5 model has been trained and used with the following setup:
 - Epochs: 500
@@ -85,7 +85,7 @@ The YOLOV5 model has been trained and used with the following setup:
 - Batchsize: 2
 - Lower threshold on inference (0.5 -> 0.45)
 
-### Detectron
+### Segmetation (Detectron)
 
 The Detectron model has been trained and used with the following setup:
 - Iterations: 20k
