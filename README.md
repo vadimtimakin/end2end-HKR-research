@@ -12,6 +12,8 @@ Our validation strategy for OCR part is a Stratified K-fold split based on the b
 
 ### Modeling and loss functions
 
+![alt text](https://github.com/t0efL/end2end-HKR-research/blob/main/images/model.png)
+
 ### Training setup
 - Epochs: 55 (50 + 5 warm-up)
 - Optimizer: MADGRAD
