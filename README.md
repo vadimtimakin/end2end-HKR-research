@@ -19,7 +19,14 @@ Our validation strategy for OCR part is a Stratified K-fold split based on the b
 
 <img src="https://github.com/t0efL/end2end-HKR-research/blob/main/images/model.jpg" alt="drawing" width="450"/>
 
+#### Architecture
 After testing CRNN and Transformer architectures separately we decided to create one `gybrid model` with tho heads: CTC's one and Transformer's one. This move allowed us to achieve maximum perfomance. In the first experiments, the two separate architectures mentioned above showed approximately similar results, so simply combining them into one does not guarantee an increase in accuracy. Instead, improving the quality of the combined model is a consequence of training it for two loss functions at once: `CTC Loss` and `Cross Entropy Loss`. During the experiments, we were able to choose the best weights for each of the losses: `0.25` and `0.75` accordingly.
+
+#### Backbone (feature extractor)
+We've tested a list of different backbones. It's necessarily to always test a backbone with different optimizers. We started from the Resnet + Adam bundle which was a good baseline. Ranger optimizer improved the accuracy of Resnet significantly. During our work on this task the Convnext has been released. It showed a low perfomance with Ranger optimizer, slightly better one with Adam and extemely good with MADGRAD (MADGRAD didn't work with Resnet). We've also tested different backbone size. Everything that was greater than "base" size was overfitting and didn't show a good perfomance. The "base" size has shown the best perfomance, but due to the time limits on inference we were forced to pick `Convnext small + MADGRAD` bundle for our final solution.
+
+#### Prefix / postfix models
+After analyzing the most frequent errors of our model, we noticed that many of them were either at the beginning or at the end. We tried to train separate prefix and postfix models and add them to our pipeline, but it didn't improve our score.
 
 ### Training setup
 - Epochs: 55 (50 + 5 warm-up)
