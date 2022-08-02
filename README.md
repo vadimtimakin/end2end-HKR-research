@@ -50,9 +50,11 @@ Our validation strategy for OCR part is a Stratified K-fold split based on the b
 
 #### English
 
-### Post-processing
+### Inference
 
 #### Merging CTC's and Transformers's heads predictions
+
+#### Speed up
 
 #### Language model
 
