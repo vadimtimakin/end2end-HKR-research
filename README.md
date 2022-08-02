@@ -97,6 +97,14 @@ The Detectron model has been trained and used with the following setup:
 
 ### Metric for evaluation
 
+Since the text is recognized on the polygons predicted by the model, in order to understand which text to compare the one predicted by the model, it is necessary to correlate the predicted polygons with ground truth polygons.
+
+The metric script searches for the predicted polygon corresponding to each ground truth polygon from the notebook. From the predicted polygons, the one that has the `largest IoU intersection` with the ground truth polygon is selected (in this case, the IoU must be greater than zero). Thus, the ground truth text from this polygon correlates with the predicted text. This is a `true positive` prediction.
+
+`False negative` cases: if the predicted polygon was not matched for a ground truth polygon, then the predicted text for such a polygon is set as empty "" (because the pipeline did not predict the text where it should be).
+
+For all `false positive` predicted polygons (i.e. those for which there are no ground truth polygons), the ground truth text is set as empty "" (because the pipeline predicted the text where there is none).
+
 ### Comparing
 
 Here are the finals scores for both models.
