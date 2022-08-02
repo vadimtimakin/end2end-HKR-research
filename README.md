@@ -103,6 +103,8 @@ Our validation strategy for detection part is a Stratified K-fold split based on
 
 ### Detection (YOLOV5)
 
+<img src="https://github.com/t0efL/end2end-HKR-research/blob/main/images/yolo.jpg" alt="drawing" width="700"/>
+
 The YOLOV5 model has been trained and used with the following setup:
 - Epochs: 500
 - Optimizer: AdamW
@@ -113,6 +115,8 @@ The YOLOV5 model has been trained and used with the following setup:
 - Lower threshold on inference (0.5 -> 0.45)
 
 ### Segmetation (Detectron)
+
+<img src="https://github.com/t0efL/end2end-HKR-research/blob/main/images/detectron.jpg" alt="drawing" width="700"/>
 
 The Detectron model has been trained and used with the following setup:
 - Iterations: 20k
@@ -158,6 +162,8 @@ As a result of our  work we managed to:
 1) Achieve 3.2 CER for bilingual OCR model.
 2) Achive 13.87 CER overall.
 3) Figure out that the detection approach based on the YOLOV5 is more efficient than the segmentation apporoach based on the Detectron.
+
+<img src="https://github.com/t0efL/end2end-HKR-research/blob/main/images/final.jpg" alt="drawing" width="700"/>
 
 ## License
 The code is Open Source under the [MIT License](https://github.com/t0efL/end2end-HKR-research/blob/main/LICENSE). There is no limitation for both acadmic and commercial usage.
