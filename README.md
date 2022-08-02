@@ -105,6 +105,8 @@ The metric script searches for the predicted polygon corresponding to each groun
 
 For all `false positive` predicted polygons (i.e. those for which there are no ground truth polygons), the ground truth text is set as empty "" (because the pipeline predicted the text where there is none).
 
+Finally, `micro CER` is calculated for each image and then averaged for all images.
+
 ### Comparing
 
 Here are the finals scores for both models.
