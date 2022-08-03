@@ -7,7 +7,9 @@ In repository we provide our approach to the end-to-end bilingual handwriting te
 
 ## Pipeline
 
-<img src="https://github.com/t0efL/end2end-HKR-research/blob/main/images/pipeline.jpg" alt="drawing" width="450"/>
+<p align="center">
+  <img src="https://github.com/t0efL/end2end-HKR-research/blob/main/images/pipeline.jpg" alt="drawing" width="450"/>
+</p>
 
 ## OCR part
 
@@ -19,7 +21,9 @@ Our validation strategy for OCR part is a Stratified K-fold split based on the b
 
 ### Modeling and loss functions
 
+<p align="center">
 <img src="https://github.com/t0efL/end2end-HKR-research/blob/main/images/model.jpg" alt="drawing" width="450"/>
+</p>
 
 #### Architecture
 After testing CRNN and Transformer architectures separately we decided to create one `gybrid model` with tho heads: CTC's one and Transformer's one. This move allowed us to achieve maximum perfomance. In the first experiments, the two separate architectures mentioned above showed approximately similar results, so simply combining them into one does not guarantee an increase in accuracy. Instead, improving the quality of the combined model is a consequence of training it for two loss functions at once: `CTC Loss` and `Cross Entropy Loss`. During the experiments, we were able to choose the best weights for each of the losses: `0.25` and `0.75` accordingly.
@@ -80,11 +84,15 @@ Negative:
 #### Custom
 We also tried to generate custom datasets using [StackMix](https://github.com/ai-forever/StackMix-OCR) and [Scrabble GAN](https://github.com/amzn/convolutional-handwriting-gan), but it didn't improve our score as neither an external data nor pretrain. Some examples below.
 
+<p align="center">
 <img src="https://github.com/t0efL/end2end-HKR-research/blob/main/images/gan.jpg" alt="drawing"/>
+</p>
 
 ### Inference
 
+<p align="center">
 <img src="https://github.com/t0efL/end2end-HKR-research/blob/main/images/inference.jpg" alt="drawing" width="450"/>
+</p>
 
 #### Merging CTC's and Transformers's heads predictions
 The transformer's prediction are usually better than the CTC's ones, however since the transformer is the seq2seq model it might cause high CER in the case where the detector gives false positive predictions - in this case transformer head sometimes predicts long sequence where it should be empty at all. Based on this we've decided to use the following techinque: if CTC head predicts empty sequence, then take its prediction (empty sequence) as a final prediction, otherwise take transformer head's prediction.
@@ -105,7 +113,9 @@ Our validation strategy for detection part is a Stratified K-fold split based on
 
 ### Detection (YOLOV5)
 
+<p align="center">
 <img src="https://github.com/t0efL/end2end-HKR-research/blob/main/images/yolo.jpg" alt="drawing" width="700"/>
+</p>
 
 The YOLOV5 model has been trained and used with the following setup:
 - Epochs: 500
@@ -118,7 +128,9 @@ The YOLOV5 model has been trained and used with the following setup:
 
 ### Segmetation (Detectron)
 
+<p align="center">
 <img src="https://github.com/t0efL/end2end-HKR-research/blob/main/images/detectron.jpg" alt="drawing" width="700"/>
+</p>
 
 The Detectron model has been trained and used with the following setup:
 - Iterations: 20k
@@ -165,7 +177,9 @@ As a result of our  work we managed to:
 2) Achive 13.87 CER overall.
 3) Figure out that the detection approach based on the YOLOV5 is more efficient than the segmentation apporoach based on the Detectron.
 
+<p align="center">
 <img src="https://github.com/t0efL/end2end-HKR-research/blob/main/images/final.jpg" alt="drawing" width="700"/>
+</p>
 
 ## License
 The code is Open Source under the [MIT License](https://github.com/t0efL/end2end-HKR-research/blob/main/LICENSE). There is no limitation for both acadmic and commercial usage.
