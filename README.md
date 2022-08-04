@@ -17,7 +17,7 @@ In repository we provide our approach to the end-to-end bilingual handwriting te
 There are two main approaches to the recognition of multilingual texts: with a single model and using multiple models for each of the languages and an additional classification model for determining the language. We tried them both and came to the conclusion that it's better to use a singe model in this task. Within the framework of our experiments, a `single model` shows a relatively good result compared to separate models. Also equally important is the fact that using a single model reduces the time and memory required for inference, which makes it more suitable for a product solution.
 
 ### Validation strategy
-Our validation strategy for OCR part is a Stratified K-fold split based on the both `text lengths` and `characters occurance`. We were forced to use only a single fold on inference due to the time limits. We split the data into 10 folds and took one of them (train 90%, validation 10%).
+Due to the time limits on inference we were forced to use a stratified train-test split validation (train 90%, validation 10%) instead of a Stratified K-fold split. Our stratify criteria is based on the both `text lengths` and `characters occurance`.
 
 ### Modeling and loss functions
 
@@ -109,7 +109,7 @@ We've implemented Beam Search for our model, it gave us a small boost in score, 
 There are two ways to get the cropped words from the sheet: `detection` and `segmentation`. We tried them both. For each one we've chosen the current SOTA model: `YOLOV5` and `Detectron` respectively.
 
 ### Validation strategy
-Our validation strategy for detection part is a Stratified K-fold split based on the both `sheet orientation` and `language on a sheet`. We were forced to use only a single fold on inference due to the time limits. We split the data into 2w0 folds and took one of them (train 95%, validation 5%).
+Due to the time limits on inference we were forced to use a stratified train-test split validation (train 95%, validation 5%) instead of a Stratified K-fold split. Our stratify criteria is based on the both `sheet orientation` and `language on a sheet`.
 
 ### Detection (YOLOV5)
 
