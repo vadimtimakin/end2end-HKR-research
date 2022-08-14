@@ -106,7 +106,9 @@ We've implemented Beam Search for our model, it gave us a small boost in score, 
 ## Detection (segmentation) part
 
 ## Possible approaches
-There are two ways to get the cropped words from the sheet: `detection` and `segmentation`. We tried them both. For each one we've chosen the current SOTA model: `YOLOV5` and `Detectron` respectively.
+There are two ways to get the cropped words from the sheet: `detection` and `segmentation`. We tried them both. We've chosen `YOLOV5` and `Detectron` models for them respectively. 
+
+The segmentation approach itself includes two different ways of words highlightning: `instance` and `semantic` ones. In the first case, we use a single model to highlight words and separate them. In the second case, our final mask doesn't separate words by default. The advantage of the last approach is higher accuracy of segmentation itself, however, in this case, we need to find a way to effectively separate the merged masks of different words. This task is extremely difficult when trying to solve it in the context of school notebooks. Many words are written very closely, as a result of which the final mask predicted by the model for semantic segmentation (we tried using U-net like architectures) sometimes combines a couple dozen words written on different lines. As a result, we decided to choose an instance segmentation approach.
 
 ### Validation strategy
 Due to the time limits on inference we were forced to use a stratified train-test split validation (train 95%, validation 5%) instead of a Stratified K-fold split. Our stratify criteria is based on the both `sheet orientation` and `language on a sheet`.
