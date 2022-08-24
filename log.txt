@@ -1,0 +1,118 @@
+Baseline modifications:
+
+    based on length validation
+    clean code
+    config
+    switch to cosine scheduler
+    reproducibility
+    switch to smart resize
+    checkpoints
+    print and logging
+    bug fixes (es, val)
+    cer
+    checkpoints
+    predicts
+    wandb
+    
+    
+OCR:
+
+	Positive:
+
+		Training:
+		    Cosine Scheduler + WarmUp (5 epochs)
+		    55 epochs (more is better but takes too much time)
+		    Gradient Clipping
+		    MADGRAD Optimizer (after warm up lr is 1e-4)
+		    
+		Transforms:
+		    Smart Resize (384 x 96)
+		    Normalization (imagenet)
+		    Swap black background to white one
+		    Grayscale
+		    
+		Augmentations:
+		    ExtraLines 
+		    Blur
+		    CLAHE 
+		    Rotate 
+		    Cutout 
+		    GridDistortion 
+		    RandomShadow
+		    MotionBlur
+		    Optical Distortion
+		    Turned off augmentations during the warmup  
+		    harder augmentations
+		    
+		 Modeling:
+		    Joint (CTC + Transformer)
+		    Convnext small
+		    Separate models for Russian and English (but finals subs without it)
+		    
+		Post-processing:
+			Batch inference for Seq2Seq model (improves speed)
+			Take CTC's predict if CTC predicted empty sequence but transformer didn't else take Transformer's predict
+		    
+		datasets:
+		    HKR
+		    GHKR dataset (but final subs without it)
+		    IAM dataset (but final subs without it)
+
+	Negative:
+
+		Training:
+			Mixed precision with CTC loss
+			SGD optimizer
+			Ranger optimizer with coatner and convnext (good for resnet)
+			Ranger 21
+			Increase hidden layer size
+			Focal Loss
+			Pretrain on other datasets
+			Label smoothing
+			Clean source data
+
+		Transforms:
+			Smart Resize V2
+
+		Augmentations:
+			Stretch augmentation
+
+		Modeling:
+			Beam search (too slow)
+			switch bilstm to transformer encoder block in CRNN
+			Convnext base (too slow)
+			Gradient accumulation
+			Freeze Batchnorms
+			Prefix / Postfix models
+			
+		Post-processing:
+			Language model
+			Autocorrection library
+
+		datasets:
+			Synthetic data from Scrable GAN
+			Stackmix
+			Kaggle dataset
+			KOHTD dataset
+			Letters dataset
+
+
+YOLOV5:
+	Single fold
+	Epochs - 500
+	AdamW optimizer
+	Tuned parameters
+	1280 image size
+	Model yolov5l
+	Batchsize 2
+	Lower threshold on inference (0.5 -> 0.45)
+	
+	
+Detectron:
+	Single fold
+	Iterations - 20k
+	MADGRAD optimizer
+	Tuned parameters
+	Convnext backbone
+	Increased number boxed on inference
+	Increased image size on infernce (1024 -> 2048)
