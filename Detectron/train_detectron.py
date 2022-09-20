@@ -190,12 +190,7 @@ class MADGRAD(torch.optim.Optimizer):
 
 
 def _register_dataset(name: str):
-    # def _load():
-    #     with open(, 'r') as f:
-    #         return json.load(f)
-    # DatasetCatalog.register(name, _load)
     register_coco_instances(name, {}, f'{fold_dir}/{name}.json', image_root=f'{data_dir}/data/train_segmentation/images')
-    # MetadataCatalog.get(name).set(thing_classes=["Dog", "Cat", "Mouse"])
 
 
 def do_test(cfg, model):
@@ -328,10 +323,8 @@ if __name__ == '__main__':
     cfg.dataloader.train.mapper.augmentations.append(LazyCall(Albumentations)(augmentor=A.ColorJitter(brightness=0.1, contrast=0.1, saturation=0.1, hue=0.1, p=0.5)))
     cfg.dataloader.train.mapper.augmentations.append(LazyCall(Albumentations)(augmentor=A.CLAHE(clip_limit=1.5, p=0.15)))
     cfg.dataloader.train.mapper.augmentations.append(LazyCall(Albumentations)(augmentor=A.RandomShadow(p=0.5)))
-    # cfg.dataloader.train.mapper.augmentations.insert(2, LazyCall(Albumentations)(augmentor=A.OpticalDistortion(distort_limit=1.0, p=0.5)))
     cfg.dataloader.train.mapper.augmentations.append(LazyCall(Albumentations)(augmentor=A.Blur(blur_limit=1.5, p=0.3)))
-    # cfg.dataloader.train.mapper.augmentations.append(LazyCall(Albumentations)(augmentor=A.MotionBlur(blur_limit=(3, 6), p=0.3)))
-
+    
     cfg.train.output_dir = f'{args.output}_fold_{fold_n}'
     cfg.dataloader.train.dataset.names = ("train",)
     cfg.dataloader.train.num_workers = args.workers
@@ -346,9 +339,6 @@ if __name__ == '__main__':
     def _get_ln(x):
         return LayerNorm(x, eps=1e-6, data_format="channels_first")
 
-    # cfg.model.backbone.norm = _get_ln
-    # cfg.model.roi_heads.mask_head.conv_norm = _get_ln
-    # cfg.model.roi_heads.box_head.conv_norm = _get_ln
     cfg.model.backbone.norm = 'BN'
     cfg.model.roi_heads.mask_head.conv_norm = 'BN'
     cfg.model.roi_heads.box_head.conv_norm = 'BN'
@@ -363,13 +353,6 @@ if __name__ == '__main__':
     cfg.model.pixel_std = [0.154 * 255, 0.163 * 255, 0.162 * 255]
     cfg.model.roi_heads.box_predictor.test_topk_per_image = 900
 
-    # cfg.model.proposal_generator.head.num_anchors = 4
-    # cfg.model.proposal_generator.anchor_generator.aspect_ratios = [0.25, 0.5, 1.0, 2.0]  # 1:4, 1:2, 1:1, 2:1
-    #
-    # cfg.model.proposal_generator.anchor_generator.sizes = [[16], [32], [64], [128], [256], [512]]
-    # cfg.model.proposal_generator.in_features = ["p2", "p2", "p3", "p4", "p5", "p6"]
-    # cfg.model.proposal_generator.anchor_generator.strides = [4, 4, 8, 16, 32, 64]
-
     cfg.model.proposal_generator.pre_nms_topk = {True: 4000, False: 4000}
     cfg.model.proposal_generator.post_nms_topk = {True: 2000, False: 2000}
 
@@ -377,9 +360,7 @@ if __name__ == '__main__':
     cfg.train.checkpointer.period = 500
     cfg.train.init_checkpoint = model_zoo.get_checkpoint_url("new_baselines/mask_rcnn_regnetx_4gf_dds_FPN_400ep_LSJ.py")
     cfg.train.eval_period = 5000
-    # cfg.optimizer.lr = 0.001
     cfg.optimizer = LazyCall(MADGRAD)(params=LazyCall(get_default_optimizer_params)(), lr=0.001)
-    # cfg.optimizer = LazyCall(MADGRAD)(params=LazyCall(get_default_optimizer_params)(), lr=0.0005)  # tuning
     cfg.lr_multiplier.warmup_factor = 0.001
     cfg.lr_multiplier.warmup_length = 0.05
     cfg.lr_multiplier.scheduler = LazyCall(CosineParamScheduler)(start_value=1.0, end_value=1e-8)
