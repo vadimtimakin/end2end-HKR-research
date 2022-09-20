@@ -13,9 +13,9 @@ class StackMix:
     def __init__(self, mwe_tokens_dir: str, image_h: int, p_background_smoothing=0.1):
         self.image_h = image_h
         self.mwe_tokens_dir = mwe_tokens_dir
-        self.max_token_size = 8  # TODO work with other tokens
-        self.angle = 0  # TODO work with other angles
-        #
+        self.max_token_size = 8  
+        self.angle = 0  
+        
         self.stackmix_data = None
         self.token2path = None
         self.path2leftx = None
